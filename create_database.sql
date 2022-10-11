@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS biker(
+    id INT NOT NULL AUTO_INCREMENT,
+    filename TEXT NOT NULL,
+    who TEXT NOT NULL,
+    PRIMARY KEY (id)
+);

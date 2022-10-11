@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<link rel=stylesheet type="text/css" href="C:\Users\游帥帥\Desktop\物聯網\gogobike-master\src\static\css\main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<head>
+    <script>
+        var name = "{{results[1]}}";
+        var path = "/static/image/{{results[0]}}";
+        var index = 0;  
+        var img ="https://truth.bahamut.com.tw/s01/201911/d9070fa2ada92aefcee3530e05fdd486.JPG";
+        function toHTML(index) { //建立toHTML()函式用來傳回HTML的夜市內容
+            var hm = "<img src='" + img + "' width=100% '>";
+            return hm; 
+        }
+        $(document).ready(function () {//網頁元素載入就緒執行此事件
+            $("#div_cont").html(toHTML(index));//將toHTML()函式取得的夜市資料呈現在#div_cont元素上})
+        });
+    </script>
+    <script src="C:\Users\游帥帥\Desktop\物聯網\gogobike-master\src\static\js\google_map.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="map"></div>
+        <div id="sidebar">
+            <nav class="navbar navbar-expand bg-dark navbar-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item li_table active">
+                        <div class="person">
+                            <a class="nav-link" href="#">個人資料</a>
+                        </div>
+                    </li>
+                    <li class="nav-item li_table">
+                        <div class="route">
+                            <a class="nav-link" href="#">我的路線</a>
+                        </div>
+                    </li>
+                    <li class="nav-item li_table">
+                        <div class="always">
+                            <a class="nav-link" href="#">常去地點</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hide1" id="menu">
+                <div class="badge badge-primary text-wrap">
+                    <H2>text</H2>
+                    <div id="div_cont" style="border-style:solid"> 
+                </div>
+            </div>
+            <div class="hide2" id="menu">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    Cras justo odio
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+            </div>
+        </div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCidjb7qnI9U3-PBjXVgq0er8Z4p0b_9Y
+        &libraries=visualization&callback=initMap">
+    </script>
+    <script src="C:\Users\723brian\Desktop\gogobike\src\static\js\firebase.js"></script>
+    <script>
+        $(".hide1").hide();
+        $(".hide2").hide();
+        $(document).ready(function () {
+            $(".person").click(function () {
+                $(".hide1").toggle();
+                $(".hide2").hide();
+            })
+            $(".route").click(function () {
+                $(".hide2").toggle();
+                $(".hide1").hide();
+            })
+            $(".always").click(function () {
+                $(".hide1").hide();
+                $(".hide2").hide();
+            })
+            
+        });
+
+        
+    </script>
+</body>
+
+</html>
